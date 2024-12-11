@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<p style='color:red;'>Las contraseñas no coinciden, por favor intenta nuevamente.</p>";
     } else {
         // Verificar si el correo ya está registrado
-        $query = "SELECT * FROM usuarios WHERE correo = '$correo'";
+        $query = "SELECT * FROM usuario WHERE correo = '$correo'";
         $result = mysqli_query($con, $query);
 
         if (mysqli_num_rows($result) > 0) {
