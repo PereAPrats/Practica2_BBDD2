@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicia Sesión</title>
+    <link rel="stylesheet" href="../estilo/header.css">
+    <link rel="stylesheet" href="../estilo/index.css">
+</head>
+<body>
+<div class="header">
+    <img src="../img/logo.png" alt="Logo">
+    <h1>INICIA SESIÓN</h1>
+</div>
+<div class="form-container">
+    <form method="POST" action="identifica.php">
+        <table>
+            <tr>
+                <td>Correo:</td>
+                <td><input name="correo" type="email"></td>
+            </tr>
+            <tr>
+                <td>Contraseña:</td>
+                <td><input name="pass" type="password"></td>
+            </tr>
+        </table>
+        <br>
+        <div class="submit-container">
+            <input name="Login" type="submit" value="Iniciar Sesión">
+        </div>
+    </form>
+    <div class="register-link">
+        <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+    </div>
+</div>
+</body>
+</html>
