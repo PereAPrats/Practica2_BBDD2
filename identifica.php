@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION)) {
     echo "session no iniciada";
     // Recollida de paràmetres
-    $user = $_POST['user'];
+    $user = $_POST['correo'];
     $pass = $_POST['pass'];
     $_SESSION['user'] = $user;
 }
