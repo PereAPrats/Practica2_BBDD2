@@ -6,7 +6,8 @@ if (!isset($_SESSION)) {
     // Recollida de paràmetres
     $user = $_POST['correo'];
     $pass = $_POST['pass'];
-    $_SESSION['user'] = $user;
+    $_SESSION['usuario'] = $user;
+    $_SESSION['tipoUsuario'] = $user;
 }
 
 // Connexió a bd
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (crypt($pass, $stored_hash) === $stored_hash) {
                 // Iniciar sesión y redirigir a la página principal
                 $_SESSION['usuario'] = $correo;  // Guardamos el correo del usuario en la sesión
+                $_SESSION['tipoUsuario'] = "usuario";  // Guardamos el correo del usuario en la sesión
                 header("Location: pagina_principal.php"); // Redirige a la página principal después de iniciar sesión
                 exit;
             } else {

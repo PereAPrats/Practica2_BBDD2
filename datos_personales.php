@@ -9,20 +9,39 @@ if (!isset($_SESSION['usuario'])) {
 
 include 'conexion.php';
 
+$tipoUsuario = $_SESSION['tipoUsuario'];
 $correoUsuario = $_SESSION['usuario'];
 $mensaje = "";
 
 // Obtener los datos actuales del usuario
-$sql = "SELECT nombre, apellidos, telefono FROM Usuario WHERE correo = '$correoUsuario'";
-$result = $con->query($sql);
+if ($tipoUsuario == "personal") {
+    $sql = "SELECT nombre, apellidos, telefono, especialidad FROM Personal WHERE correo = '$correoUsuario'";
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $nombre = $row['nombre'];
-    $apellidos = $row['apellidos'];
-    $telefono = $row['telefono'];
-} else {
-    $nombre = $apellidos = $telefono = "";
+    $result = $con->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $nombre = $row['nombre'];
+        $apellidos = $row['apellidos'];
+        $telefono = $row['telefono'];
+        $especialidad = $row['especialidad'];
+    } else {
+        $nombre = $apellidos = $telefono = $especialidad = "";
+    }
+
+} elseif ($tipoUsuario == "usuario") {
+    $sql = "SELECT nombre, apellidos, telefono FROM Usuario WHERE correo = '$correoUsuario'";
+
+    $result = $con->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $nombre = $row['nombre'];
+        $apellidos = $row['apellidos'];
+        $telefono = $row['telefono'];
+    } else {
+        $nombre = $apellidos = $telefono = "";
+    }
 }
 
 // Actualizar los datos si se envió el formulario
@@ -30,9 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nuevoNombre = $con->real_escape_string($_POST['nombre']);
     $nuevosApellidos = $con->real_escape_string($_POST['apellidos']);
     $nuevoTelefono = $con->real_escape_string($_POST['telefono']);
+    $nuevaEspecialidad = $con->real_escape_string($_POST['especialidad']);
 
-    $sql = "UPDATE Usuario SET nombre = '$nuevoNombre', apellidos = '$nuevosApellidos', telefono = '$nuevoTelefono' WHERE correo = '$correoUsuario'";
-    
+    if ($tipoUsuario == "personal") {
+        $sql = "UPDATE Personal SET nombre = '$nuevoNombre', apellidos = '$nuevosApellidos', telefono = '$nuevoTelefono', especialidad = '$nuevaEspecialidad' WHERE correo = '$correoUsuario'";
+    } elseif ($tipoUsuario == "usuario") {
+        $sql = "UPDATE Usuario SET nombre = '$nuevoNombre', apellidos = '$nuevosApellidos', telefono = '$nuevoTelefono' WHERE correo = '$correoUsuario'";
+    }
+
     if ($con->query($sql) === TRUE) {
         $mensaje = "Datos actualizados con éxito.";
     } else {
@@ -78,6 +102,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="telefono">Teléfono:</label>
             <input type="text" id="telefono" name="telefono" value="<?php echo htmlspecialchars($telefono); ?>" required>
+
+            <?php if ($tipoUsuario == "personal"):?>
+            
+            <label for="especialidad">Teléfono:</label>
+            <input type="text" id="especialidad" name="especialidad" value="<?php echo htmlspecialchars($especialidad); ?>" required>
+            
+            <?php endif; ?>
 
             <button type="submit">Actualizar</button>
         </form>
