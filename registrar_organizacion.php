@@ -14,14 +14,14 @@ include "conexion.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Recoger parámetros del formulario
     $nombre_organizacion = mysqli_real_escape_string($con, $_POST['nombre_organizacion']);
-    $telefono_organizacion = mysqli_real_escape_string($con, $_POST['telefono']);
+    $telefono_organizacion = mysqli_real_escape_string($con, $_POST['telefono_organizacion']);
     $direccion_organizacion = mysqli_real_escape_string($con, $_POST['direccion']);
     $correo_organizacion = mysqli_real_escape_string($con, $_POST['correo_organizacion']);
     $CIF = mysqli_real_escape_string($con, $_POST['CIF']);
 
     $nombre_usuario = mysqli_real_escape_string($con, $_POST['nombre_usuario']);
-    $apellidos_usuario = mysqli_real_escape_string($con, $_POST['apellidos']);
-    $telefono_usuario = mysqli_real_escape_string($con, $_POST['telefono']);
+    $apellidos_usuario = mysqli_real_escape_string($con, $_POST['apellidos_usuario']);
+    $telefono_usuario = mysqli_real_escape_string($con, $_POST['telefono_usuario']);
     $correo_usuario = mysqli_real_escape_string($con, $_POST['correo_usuario']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $confirm_pass = mysqli_real_escape_string($con, $_POST['confirm_pass']);

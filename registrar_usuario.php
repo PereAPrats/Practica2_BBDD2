@@ -66,3 +66,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Usuario</title>
+    <link rel="stylesheet" href="../estilo/registrar_usuario.css">
+    <link rel="stylesheet" href="../estilo/header.css">
+</head>
+<body>
+<div class="header">
+    <img src="../img/logo.png" alt="Logo">
+    <h1>Registrar Usuario</h1>
+</div>
+<div class="main-container">
+    <div class="form-container">
+        <h2>Registrar Usuario Administrador</h2>
+        <?php if (isset($error_message)): ?>
+            <p style="color: red;"><?= htmlspecialchars($error_message); ?></p>
+        <?php endif; ?>
+        <form method="POST" action="">
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input name="nombre_usuario" type="text" maxlength="64" required></td>
+                </tr>
+                <tr>
+                    <td>Apellidos:</td>
+                    <td><input name="apellidos" type="text" maxlength="64" required></td>
+                </tr>
+                <tr>
+                    <td>Teléfono:</td>
+                    <td><input name="telefono" type="tel" maxlength="16" pattern="[0-9+()\- ]{1,16}" required></td>
+                </tr>
+                <tr>
+                    <td>Correo:</td>
+                    <td><input name="correo_usuario" type="email" required></td>
+                </tr>
+                <tr>
+                    <td>Contraseña:</td>
+                    <td><input name="password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td>Confirmar Contraseña:</td>
+                    <td><input name="confirm_pass" type="password" required></td>
+                </tr>
+            </table>
+            <div class="submit-container">
+                <input type="submit" value="Guardar Usuario" class="btn-fancy">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+

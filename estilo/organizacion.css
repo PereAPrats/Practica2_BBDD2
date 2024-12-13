@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo de los contenedores */
+.container {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Estilo de la sección de organización */
+.info-organizacion {
+    margin-bottom: 30px;
+}
+
+.info-organizacion h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.info-organizacion p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Estilo de la tabla de usuarios */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.user-table th {
+    background-color: #f4f4f9;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo del botón de añadir usuario */
+.btn-ingresar-org {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ingresar-org:hover {
+    background-color: #0056b3;
+}
+
