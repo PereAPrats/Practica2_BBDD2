@@ -59,6 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             throw new Exception("Error al registrar la organización.");
         }
 
+        // Obtener el ID de la organización recién insertada
+        $id_organizacion = mysqli_insert_id($con);
+
         // Verificar si el correo del usuario ya está registrado
         $query_usuario = "SELECT * FROM usuario WHERE correo = '$correo_usuario'";
         $result_usuario = mysqli_query($con, $query_usuario);
@@ -66,14 +69,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             throw new Exception("El correo del usuario ya está registrado.");
         }
 
+        // Generar nuevo grupo con privilegios máximos
+        $query_insert_grupo = "
+            INSERT INTO grupo (nombreGrupo, idPrivilegio, idOrganizacion) 
+            VALUES ('Administrador', '1', '$id_organizacion')
+        ";
+        if (!mysqli_query($con, $query_insert_grupo)) {
+            throw new Exception("Error al registrar el grupo.");
+        }
+
+        // Obtener el ID del nuevo grupo
+        $id_grupo = mysqli_insert_id($con);
+
         // Generar sal y hash para la contraseña
         $salt = uniqid(mt_rand(), true);
         $hash = crypt($password, '$2y$10$' . $salt);
 
         // Insertar el usuario
         $query_insert_usuario = "
-            INSERT INTO usuario (nombre, apellidos, correo, telefono) 
-            VALUES ('$nombre_usuario', '$apellidos_usuario', '$correo_usuario', '$telefono_usuario')
+            INSERT INTO usuario (nombre, apellidos, correo, telefono, idGrupo) 
+            VALUES ('$nombre_usuario', '$apellidos_usuario', '$correo_usuario', '$telefono_usuario', '$id_grupo')
         ";
         if (!mysqli_query($con, $query_insert_usuario)) {
             throw new Exception("Error al registrar el usuario.");
@@ -94,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Confirmar la transacción
         mysqli_commit($con);
         echo "<p style='color:green;'>¡Registro exitoso! Ahora puedes iniciar sesión.</p>";
-        header("Location: index.html");
+        header("Location: html/index.html");
     } catch (Exception $e) {
         // Revertir cambios si ocurre un error
         mysqli_rollback($con);
