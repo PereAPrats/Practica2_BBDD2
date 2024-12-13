@@ -4,6 +4,20 @@ body {
     margin: 0;
     padding: 0;
 }
+.header a {
+    text-decoration: none;
+    background-color: #fff;
+    color: #1a73e8;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header a:hover {
+    background-color: #e8f0fe;
+    color: #0c59d4;
+}
 
 /* Estilo de los contenedores */
 .container {
@@ -54,7 +68,7 @@ body {
 }
 
 /* Estilo del botón de añadir usuario */
-.btn-ingresar-org {
+.btn-fancy {
     padding: 12px 20px;
     background-color: #007BFF;
     color: white;
@@ -65,7 +79,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.btn-ingresar-org:hover {
+.btn-fancy:hover {
     background-color: #0056b3;
 }
 

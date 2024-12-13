@@ -40,12 +40,6 @@ $query_usuarios = "
 ";
 $result_usuarios = mysqli_query($con, $query_usuarios);
 
-$query_nombre = "SELECT nombre FROM Usuario WHERE correo = '$user_id'";
-$result = $con->query($query_nombre);
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $nombreUsuario = $row['nombre']; // Puede ser NULL si no está configurado
-}
 ?>
 
 <!DOCTYPE html>
@@ -61,13 +55,7 @@ if ($result->num_rows > 0) {
 <div class="header">
     <img src="../img/logo.png" alt="Logo">
     <h1>Organizacion</h1>
-    <p>Bienvenido,
-        <?php if ($nombreUsuario): ?>
-            <span id="user-name"><?php echo htmlspecialchars($nombreUsuario); ?></span>
-        <?php else: ?>
-            <a href="datos_personales.php">Configurar datos personales</a>
-        <?php endif; ?>
-    </p>
+    <a href="pagina_principal.php" >Menu Principal</a>
 </div>
 <body>
 
@@ -79,7 +67,8 @@ if ($result->num_rows > 0) {
         <p><strong>Correo:</strong> <?php echo $organizacion['correoO']; ?></p>
 
         <?php if ($privilegio_usuario == 1) { ?>
-            <button class="btn-ingresar-org" onclick="window.location.href='../registrar_usuario.php';">Añadir Usuario</button>
+            <button class="btn-fancy" onclick="window.location.href='registrar_usuario.php';">Añadir Usuario</button>
+            <button class="btn-fancy" onclick="window.location.href='registrar_grupo.php';">Añadir Grupo</button>
         <?php } ?>
     </section>
 

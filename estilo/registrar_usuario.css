@@ -1,165 +1,179 @@
-/* General */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9fb;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    color: #333;
 }
 
 .header {
     background-color: #1a73e8;
     color: white;
-    padding: 15px 20px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.header img {
-    width: 50px;
-    vertical-align: middle;
-    margin-right: 10px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header h1 {
-    display: inline-block;
     margin: 0;
     font-size: 24px;
-    vertical-align: middle;
+    text-transform: uppercase;
 }
 
-.header .btn-fancy {
-    float: right;
-    margin-top: -45px;
-    margin-right: 20px;
-    font-size: 14px;
+.header img {
+    width: 100px;
+    margin-left: 20px;
 }
 
-/* Main Container */
-.main-container {
-    margin: 20px auto;
-    width: 90%;
-    max-width: 600px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-.main-container h2 {
-    font-size: 22px;
+.header a {
+    text-decoration: none;
+    background-color: #fff;
     color: #1a73e8;
-    text-align: center;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header a:hover {
+    background-color: #e8f0fe;
+    color: #0c59d4;
+}
+
+.main-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-container {
+    margin: auto;
+    text-align: left;
+}
+
+.form-container h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
     margin-bottom: 20px;
 }
 
-/* Form Styling */
-form table {
-    width: 100%;
-    border-spacing: 0;
-    margin: 0;
-}
-
-form td {
-    padding: 10px 0;
-    vertical-align: top;
-}
-
-form td:first-child {
-    text-align: right;
-    padding-right: 15px;
-    font-weight: bold;
-    color: #555;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="password"],
-form input[type="tel"] {
-    width: 100%;
+td {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
+    vertical-align: middle;
 }
 
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form input[type="password"]:focus,
-form input[type="tel"]:focus {
-    border-color: #1a73e8;
-    outline: none;
-    box-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
 .submit-container {
     text-align: center;
-    margin-top: 20px;
 }
 
-/* Buttons */
-.btn-fancy {
+button {
     background-color: #1a73e8;
-    color: #fff;
-    padding: 10px 15px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0c59d4;
+}
+
+p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+p[style="color:red;"] {
+    color: red;
+    font-weight: bold;
+}
+
+p[style="color:green;"] {
+    color: green;
+    font-weight: bold;
+}
+
+.btn-fancy {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .btn-fancy:hover {
-    background-color: #155abc;
+    background-color: #0056b3;
 }
 
-.btn-fancy:active {
-    background-color: #0f4690;
+
+/* Estilo para el desplegable (select) */
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    margin-top: 10px;
+    box-sizing: border-box;
 }
 
-/* Error/Success Messages */
-form p {
-    margin: 10px 0;
-    font-size: 14px;
-    text-align: center;
+/* Cambiar el color de fondo cuando el usuario hace hover */
+select:hover {
+    border-color: #1a73e8;
+    background-color: #f4f6fc;
 }
 
-form p[style="color:red;"] {
-    color: #d93025;
-    font-weight: bold;
+/* Estilo cuando el desplegable está deshabilitado */
+select:disabled {
+    background-color: #e9ecef;
+    border-color: #ddd;
+    cursor: not-allowed;
 }
 
-form p[style="color:green;"] {
-    color: #34a853;
-    font-weight: bold;
+/* Mejorar la apariencia de la flecha del select */
+select::-ms-expand {
+    display: none; /* Quitar la flecha de IE */
 }
 
-/* Responsive */
+
+/* Añadir padding al contenedor de la celda para asegurar espacio alrededor */
+td {
+    padding: 10px 0;
+}
+
+/* Estilo adicional si deseas agrandar el select en dispositivos móviles */
 @media (max-width: 768px) {
-    .header h1 {
-        font-size: 20px;
-    }
-
-    form td:first-child {
-        text-align: left;
-        padding-right: 0;
-    }
-
-    form table {
-        display: block;
-    }
-
-    form td {
-        display: block;
-        width: 100%;
-    }
-
-    .btn-fancy {
-        width: 100%;
-        margin-top: 10px;
+    select {
+        font-size: 14px;
+        padding: 10px;
     }
 }
