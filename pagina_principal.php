@@ -9,6 +9,7 @@ if (!isset($_SESSION['usuario'])) {
 
 include 'conexion.php';
 
+$tipoUsuario = $_SESSION['tipoUsuario'];
 $correoUsuario = $_SESSION['usuario'];
 $nombreUsuario = null;
 
@@ -58,21 +59,21 @@ if ($result->num_rows > 0) {
     </div>
 
     <div id="cliente-section" class="role-section">
-        <h2>Panel del Cliente</h2>
+        <h2>Panel del Usuario</h2>
         <ul>
             <li><a href="datos_personales.php">Ver datos personales</a></li>
             <li><a href="organizacion.php">Información de la organización</a></li>
         </ul>
     </div>
 
-    <!-- <div id="personal-section" class="role-section" style="display: none;">
+    <?php if ($tipoUsuario == "personal"): ?>
+    <div id="personal-section" class="role-section">
         <h2>Panel del Personal</h2>
         <ul>
             <li><a href="gestionar_usuarios.html">Gestión de usuarios</a></li>
-            <li><a href="ver_organizaciones.html">Visualizar organizaciones</a></li>
-            <li><a href="reportes.html">Generar reportes</a></li>
         </ul>
-    </div> -->
+    </div>
+    <?php endif; ?>
 </div>
 </body>
 </html>
