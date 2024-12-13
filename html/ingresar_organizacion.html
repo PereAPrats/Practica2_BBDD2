@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Organización y Usuario</title>
+    <link rel="stylesheet" href="../estilo/header.css">
+    <link rel="stylesheet" href="../estilo/ingresar_organizacion.css">
+</head>
+<body>
+<div class="header">
+    <img src="../img/logo.png" alt="Logo">
+    <h1>INGRESAR ORGANIZACIÓN Y USUARIO</h1>
+    <a href="index.html" class="btn-fancy">Iniciar Sesión</a>
+</div>
+<div class="main-container">
+    <form id="form-organizacion-usuario" method="POST" action="../registrar_organizacion.php">
+        <!-- Sección Organización -->
+        <div class="form-container">
+            <h2>Detalles de la Organización</h2>
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input name="nombre_organizacion" type="text" required></td>
+                </tr>
+                <tr>
+                    <td>Teléfono:</td>
+                    <td><input name="telefono_organizacion" type="tel" required></td>
+                </tr>
+                <tr>
+                    <td>Dirección:</td>
+                    <td><input name="direccion" type="text" required></td>
+                </tr>
+                <tr>
+                    <td>Correo:</td>
+                    <td><input name="correo_organizacion" type="email" required></td>
+                </tr>
+                <tr>
+                    <td>CIF:</td>
+                    <td><input name="CIF" type="text" maxlength="16" required></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Separador -->
+        <hr>
+        <p style="text-align: center; font-weight: bold;">Para poder gestionar
+            la organización se necesitará un usuario administrador</p>
+
+        <!-- Sección Usuario -->
+        <div class="form-container">
+            <h2>Registrar Usuario Administrador</h2>
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input name="nombre_usuario" type="text" maxlength="64" required></td>
+                </tr>
+                <tr>
+                    <td>Apellidos:</td>
+                    <td><input name="apellidos_usuario" type="text" maxlength="64" required></td>
+                </tr>
+                <tr>
+                    <td>Teléfono:</td>
+                    <td><input name="telefono_usuario" type="tel" maxlength="16" pattern="[0-9+()\- ]{1,16}" required></td>
+                </tr>
+                <tr>
+                    <td>Correo:</td>
+                    <td><input name="correo_usuario" type="email" required></td>
+                </tr>
+                <tr>
+                    <td>Contraseña:</td>
+                    <td><input name="password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td>Confirmar Contraseña:</td>
+                    <td><input name="confirm_pass" type="password" required></td>
+                </tr>
+            </table>
+            <div class="submit-container">
+                <button type="submit" class="btn-fancy">Guardar Organización</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

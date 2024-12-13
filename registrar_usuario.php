@@ -14,11 +14,11 @@ include "conexion.php";
 
 // Verificar si el formulario fue enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $correo = mysqli_real_escape_string($con, $_POST['correo']);
-    $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
+    $correo = mysqli_real_escape_string($con, $_POST['correo_usuario']);
+    $nombre = mysqli_real_escape_string($con, $_POST['nombre_usuario']);
     $apellidos = mysqli_real_escape_string($con, $_POST['apellidos']);
     $telefono = mysqli_real_escape_string($con, $_POST['telefono']);
-    $pass = mysqli_real_escape_string($con, $_POST['pass']);
+    $pass = mysqli_real_escape_string($con, $_POST['password']);
     $confirm_pass = mysqli_real_escape_string($con, $_POST['confirm_pass']);
 
     // Verificar si la contraseña y la confirmación coinciden
@@ -54,12 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ";
                 if (mysqli_query($con, $query_pass)) {
                     echo "<p style='color:green;'>¡Registro exitoso! Ahora puedes iniciar sesión.</p>";
+                    header("Location: pagina_principal.php");
                 } else {
                     echo "<p style='color:red;'>Hubo un error al registrar la contraseña.</p>";
                 }
             } else {
                 echo "<p style='color:red;'>Hubo un error al registrar el usuario.</p>";
             }
+
         }
     }
 }

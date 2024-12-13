@@ -5,13 +5,26 @@ body {
     padding: 0;
 }
 
+.main-container {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .form-container {
-    margin: 50px auto;
-    width: 300px;
     background: white;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+
+.form-container h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #1a73e8;
 }
 
 table {
@@ -22,7 +35,7 @@ td {
     padding: 10px 0;
 }
 
-input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -31,6 +44,7 @@ input[type="email"], input[type="password"] {
 
 .submit-container {
     text-align: center;
+    margin-top: 15px;
 }
 
 input[type="submit"] {
@@ -47,22 +61,7 @@ input[type="submit"]:hover {
     background-color: #0c59d4;
 }
 
-.register-link {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.register-link a {
-    color: #1a73e8;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.register-link a:hover {
-    text-decoration: underline;
-}
-
-.btn-ingresar-org {
+.btn-fancy {
     display: inline-block;
     padding: 10px 20px;
     background-color: #007BFF; /* Color azul */
@@ -74,6 +73,6 @@ input[type="submit"]:hover {
     transition: background-color 0.3s ease;
 }
 
-.btn-ingresar-org:hover {
+.btn-fancy:hover {
     background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
 }

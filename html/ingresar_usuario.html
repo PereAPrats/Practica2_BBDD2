@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Usuario</title>
+    <link rel="stylesheet" href="../estilo/header.css">
+    <link rel="stylesheet" href="../estilo/ingresar_organizacion.css">
+</head>
+<body>
+<div class="header">
+    <img src="../img/logo.png" alt="Logo">
+    <h1>REGISTRAR USUARIO</h1>
+    <a href="index.html" class="btn-fancy">Iniciar Sesión</a>
+</div>
+<div class="main-container">
+    <div class="form-container">
+        <h2>Registrar Usuario Administrador</h2>
+        <form id="form-usuario" method="POST" action="../registrar_usuario.php">
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input name="nombre_usuario" type="text" maxlength="64" required></td>
+                </tr>
+                <tr>
+                    <td>Apellidos:</td>
+                    <td><input name="apellidos" type="text" maxlength="64" required></td>
+                </tr>
+                <tr>
+                    <td>Teléfono:</td>
+                    <td><input name="telefono" type="tel" maxlength="16" pattern="[0-9+()\- ]{1,16}" required></td>
+                </tr>
+                <tr>
+                    <td>Correo:</td>
+                    <td><input name="correo_usuario" type="email" required></td>
+                </tr>
+                <tr>
+                    <td>Contraseña:</td>
+                    <td><input name="password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td>Confirmar Contraseña:</td>
+                    <td><input name="confirm_pass" type="password" required></td>
+                </tr>
+            </table>
+            <div class="submit-container">
+                <button type="button" class="btn-fancy"> Guardar Usuario</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
